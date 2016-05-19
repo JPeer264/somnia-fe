@@ -1,0 +1,31 @@
+{
+  "name": "superpowerteam",
+  "version": "0.0.1",
+  "authors": [
+    "Simon Reinsperger",
+    "Lukas Aichbauer",
+    "Jan Peer Stöcklmair"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "angular-animate": "^1.4.3",
+    "angular-cookies": "^1.5.3",
+    "angular-local-storage": "^0.2.2",
+    "angular-touch": "^1.4.3",
+    "angular-ui-router": "^0.2.15",
+    "jquery": "^2.2.3",
+    "lodash": "^4.11.2",
+    "ng-file-upload": "~7.2.1",
+    "restangular": "^1.5.2",
+    "angular-material": "^1.0.7",
+    "foundation-sites": "^6.2.1"
+  },
+  "license": "MIT"
+}

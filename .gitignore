@@ -1,0 +1,13 @@
+# Modules
+node_modules
+bower_components
+
+# Grunt generated files
+tmp
+dist
+coverage
+docs
+createdFileByGrunt.scss
+
+# Max DS_Store
+.DS_Store
