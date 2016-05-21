@@ -22,7 +22,7 @@ function MilestonesController($scope, project) {
     /**
      * @ngdoc property
      * @name $scope.project
-     * @propertyOf pages.milestones:MilestoneCtrl
+     * @propertyOf cmps.profile:MilestonesCtrl
      *
      * @description
      * The data of the projects of the currentuser
