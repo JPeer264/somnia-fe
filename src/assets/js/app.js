@@ -8,6 +8,7 @@ angular.module('superpowerteam', [
     'restangular',
     'ngCookies',
     'ngMaterial',
+    'ngLodash'
 ]);
 
 angular
@@ -18,7 +19,8 @@ angular
         "TOKEN": "tkn_u", // tkn_u = token_user
         "USER_ID": "u_i", // u_i = user_id
         "PREFLANGUAGE": "p_lang",
-    });
+    })
+    .constant('_', window._);
 
 // config method
 config.$inject = [
@@ -190,7 +192,6 @@ function run($rootScope, $stateParams, auth, user) {
         if (user.isIdentityResolved()) {
             auth.authorize();
         }
-
     });
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
