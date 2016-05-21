@@ -1,6 +1,20 @@
 #footer {
-    padding: $global-padding;
-    margin-top: $global-margin;
+    padding: 0 $global-padding $global-padding;
+    margin: $global-margin*2 $global-margin;
+    font-size: .8rem;
     border-top: 1px solid $dark-gray;
     color: $dark-gray;
+
+    .menu {
+        transition: .5s background-color;
+
+        &:hover {
+            background-color: $light-gray;
+            transition: .5s background-color;
+        }
+    }
+
+    a {
+        color: $dark-gray;
+    }
 }

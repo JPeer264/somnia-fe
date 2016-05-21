@@ -30,7 +30,7 @@ function UserbarController($scope, auth, $window, $cookies, COOKIE, $location) {
     /**
      * @ngdoc property
      * @name $scope.logout
-     * @propertyOf pages.userbar:UserbarCtrl
+     * @propertyOf cmps.profile:UserbarCtrl
      *
      * @description
      * call the auth.logout() service

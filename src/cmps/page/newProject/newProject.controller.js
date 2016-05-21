@@ -32,7 +32,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
     /**
      * @ngdoc property
      * @name $scope.register
-     * @propertyOf pages.newProject:NewProjectCtrl
+     * @propertyOf cmps.page:NewProjectCtrl
      *
      * @description
      * create an user via user.create() and
