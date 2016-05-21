@@ -62,15 +62,15 @@ function newProject() {
                                 var temp = [
                                     {
                                         "title": scope.user.project.milestone[0].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()/1000
+                                        "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()
                                     },
                                     {
                                         "title": scope.user.project.milestone[1].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()/1000
+                                        "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()
                                     },
                                     {
                                         "title": scope.user.project.milestone[2].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()/1000
+                                        "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()
                                     }
                                 ];
 
@@ -79,9 +79,8 @@ function newProject() {
                                 scope.user.project.milestones = temp;
 
                                 //todo: get real date
-                                scope.user.project.dueDate = 1923790502134;
+                                scope.user.project.dueDate = (new Date(scope.user.project.dueDate)).getTime();
                             }
-
                             scope.register(scope.user);
                         }
 
