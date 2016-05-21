@@ -7,16 +7,14 @@ angular
  * @name cmps.page:NavbarCtrl
  *
  * @requires $scope
- * @requires $state
  *
  * @description
  * Hello App controller
  */
 NavbarController.$inject = [
-    '$scope',
-    '$state'
+    '$scope'
 ];
 
-function NavbarController($scope, $state) {
+function NavbarController($scope) {
 
 }
