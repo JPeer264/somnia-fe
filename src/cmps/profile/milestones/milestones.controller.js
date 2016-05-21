@@ -18,6 +18,15 @@ MilestonesController.$inject = [
 ];
 
 function MilestonesController($scope, project) {
+
+    /**
+     * @ngdoc property
+     * @name $scope.project
+     * @propertyOf pages.milestones:MilestoneCtrl
+     *
+     * @description
+     * The data of the projects of the currentuser
+     */
     project.getAll().then(function (data) {
 
         $scope.project = data.project;

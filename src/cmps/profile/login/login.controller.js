@@ -28,9 +28,9 @@ LoginController.$inject = [
 function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
 
     /**
-     * @ngdoc method
-     * @name login
-     * @methodOf cmps.profile:LoginCtrl
+     * @ngdoc property
+     * @name $scopelogin
+     * @propertyOf cmps.profile:LoginCtrl
      *
      * @description
      * call the auth.login() service and set token if it not fail
@@ -44,9 +44,9 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
     }
 
     /**
-     * @ngdoc method
-     * @name signup
-     * @methodOf cmps.profile:LoginCtrl
+     * @ngdoc property
+     * @name $scope.signup
+     * @propertyOf cmps.profile:LoginCtrl
      *
      * @description
      * go to signup page

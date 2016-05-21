@@ -28,8 +28,18 @@ NewProjectController.$inject = [
 ];
 
 function NewProjectController($scope, $state, $cookies, $window, user, auth, COOKIE) {
-    // todo delete $timeout if user.create() is implemented
 
+    /**
+     * @ngdoc property
+     * @name $scope.register
+     * @propertyOf pages.newProject:NewProjectCtrl
+     *
+     * @description
+     * create an user via user.create() and
+     * login directly after the user has been created
+     *
+     * @param {Object} formData the userdata
+     */
     $scope.register = function(formData) {
         // todo if fails show error
         user.create(formData).then(function (data) {

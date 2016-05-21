@@ -19,18 +19,4 @@ HeaderController.$inject = [
 
 function HeaderController($scope) {
 
-    /**
-     * @ngdoc method
-     * @name headerScope
-     * @methodOf pages.header:HeaderCtrl
-     *
-     * @description
-     * call the auth.logout() service and check logged in status
-     *
-     * @return {Boolean} auth.isAuthorized()
-     */
-    $scope.headerScope = function() {
-        return 'Headerzeugs';
-    }
-
 }
