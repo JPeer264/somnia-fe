@@ -28,7 +28,19 @@ function newProject() {
                 var $self = $(this);
                 var $formElem = $('#newProject');
                 var $forms = $formElem.find('form');
+                var $dates = $formElem.find('input[type=date]')
 
+                // todo delete
+                $formElem.css({
+                    // 'transform': 'translate3d(-' + $formElem.outerWidth(true) + 'px, 0px, 0px)'
+                });
+
+                // set min date for input date
+                $dates.each(function (key, value) {
+                    $(this).attr('min', new Date().toISOString().substring(0, 10));
+                });
+
+                // transform logic
                 $forms.each(function (key, value) {
                     $(this).submit(function (e) {
                         var formElemWidth = $formElem.outerWidth(true);
@@ -44,19 +56,18 @@ function newProject() {
                         } else {
                             // the last one
                             // transform milestones to array
-                            // todo: insert real timestamp
                             var temp = [
                                 {
                                     "title": scope.user.project.milestone[0].title,
-                                    "dueDate": 1063790502134
+                                    "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()/1000
                                 },
                                 {
                                     "title": scope.user.project.milestone[1].title,
-                                    "dueDate": 1163790502134
+                                    "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()/1000
                                 },
                                 {
-                                    "title": scope.user.project.milestone[0].title,
-                                    "dueDate": 1023790502134
+                                    "title": scope.user.project.milestone[2].title,
+                                    "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()/1000
                                 }
                             ];
 
