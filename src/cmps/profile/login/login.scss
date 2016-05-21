@@ -1,5 +1,13 @@
-.login {
-    margin-top: $global-margin;
+#login {
+    padding: 0;
+
+    .close-button {
+        color: $primary-color;
+
+        &:hover {
+            color: $black;
+        }
+    }
 
     h2 {
         color: white;
