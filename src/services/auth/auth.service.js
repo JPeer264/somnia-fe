@@ -36,19 +36,20 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
     var self = this;
 
     self.authorize = function() {
+
         if (!self.check()) {
             // user is not authenticated. stow the state they wanted before you
             // send them to the signin state, so you can return them when you're done
             $rootScope.returnToState = $rootScope.toState;
             $rootScope.returnToStateParams = $rootScope.toStateParams;
 
-            // if ($rootScope.toState && $rootScope.toState.name !== 'secure.index') {
-            //     $location.path('/error');
-            //     return;
-            // }
-
             $location.path('/landing');
             return;
+        } else {
+            if ($rootScope.toState.name === 'landing') {
+                $location.path('/');
+                return;
+            }
         }
 
         return user.setCurrent().then(function() {
