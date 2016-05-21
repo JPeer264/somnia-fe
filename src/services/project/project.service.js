@@ -74,7 +74,7 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
                 }
             }
         }, 500);
-    }
+    };
 
     /**
      * @ngdoc method
@@ -89,7 +89,7 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
      */
     self.create = function (formData) {
         return Restangular.one('project').customPOST($httpParamSerializer(formData));
-    }
+    };
 
     /**
      * @ngdoc method
@@ -105,7 +105,7 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
      */
     self.update = function (id, formData) {
         return Restangular.one('project', id).customPUT($httpParamSerializer(formData));
-    }
+    };
 
     /**
      * @ngdoc method

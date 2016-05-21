@@ -43,7 +43,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
     // setup restangular basics
     RestangularProvider.setBaseUrl('http://localhost:1337/api/')
     .setDefaultHeaders({
-        'Content-Type': 'application/x-www-form-urlencoded',
+        'Content-Type': 'application/json',
         Authorization: 'Bearer '+ $cookies.get('tkn_u')
     });
 

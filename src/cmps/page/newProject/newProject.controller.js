@@ -42,7 +42,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
      */
     $scope.register = function(formData) {
         // todo if fails show error
-        user.create(formData).then(function (data) {
+        user.create(formData).then(function () {
             auth.login($scope.userdata).then(function (data) {
                 $cookies.put(COOKIE.TOKEN, data.token);
                 $cookies.put(COOKIE.USER_ID, data.user.id);

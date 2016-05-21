@@ -43,6 +43,29 @@ function newProject() {
                             });
                         } else {
                             // the last one
+                            // transform milestones to array
+                            // todo: insert real timestamp
+                            var temp = [
+                                {
+                                    "title": scope.user.project.milestone[0].title,
+                                    "dueDate": 1063790502134
+                                },
+                                {
+                                    "title": scope.user.project.milestone[1].title,
+                                    "dueDate": 1163790502134
+                                },
+                                {
+                                    "title": scope.user.project.milestone[0].title,
+                                    "dueDate": 1023790502134
+                                }
+                            ];
+
+                            scope.user.project.milestone = null;
+                            delete scope.user.project.milestone;
+                            scope.user.project.milestones = temp;
+
+                            scope.user.project.dueDate = 1923790502134;
+
                             scope.register(scope.user);
                         }
 
