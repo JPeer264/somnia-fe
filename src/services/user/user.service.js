@@ -97,7 +97,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
      */
     self.setCurrent = function() {
         return (self.getCurrent()).then(function(data) {
-            var userdata = data;
+            var userdata = data.plain().user;
             _identity = userdata;
             _authenticated = true;
             $rootScope.currentUser = userdata;

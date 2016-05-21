@@ -25,7 +25,10 @@ function stepDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
-
+                // console.log($('iElm').find('data-edit'));
+                $('iElm').find('data-edit').click(function(data) {
+                    console.log('test');
+                });
             }
         };
 };

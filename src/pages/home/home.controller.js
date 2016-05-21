@@ -14,10 +14,11 @@ angular
  */
 HomeController.$inject = [
     '$scope',
-    'project'
+    'project',
+    '_'
 ];
 
-function HomeController($scope, project) {
+function HomeController($scope, project, _) {
 
     /**
      * @ngdoc property
@@ -29,7 +30,23 @@ function HomeController($scope, project) {
      */
     $scope.getUser = 'users';
 
+    /**
+     * @ngdoc property
+     * @name $scope.steps
+     * @propertyOf pages.home:HomeCtrl
+     *
+     * @description
+     * All the steps of the current user
+     */
     project.getAll().then(function(data) {
-        console.log(data);
+        data = data.plain();
+        var milestones = data.user.project.milestones;
+        var steps = [];
+
+        for (var milestone of milestones) {
+            steps.push(milestone.step);
+        }
+
+        $scope.steps = _.flatten(steps);
     });
 }

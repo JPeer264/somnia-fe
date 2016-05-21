@@ -11,10 +11,11 @@ angular
 
 step.$inject = [
     '$rootScope',
-    'Restangular'
+    'Restangular',
+    '$httpParamSerializer'
 ];
 
-function step($rootScope, Restangular) {
+function step($rootScope, Restangular, $httpParamSerializer) {
     var self = this;
 
     /**

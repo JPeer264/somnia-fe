@@ -1,13 +1,19 @@
 <div class="step">
     <div class="row">
-        <div class="column small-5">
-            $index {{ title }}
+        <div class="column small-11">
+            <div class="row padding">
+                <div class="column small-8">
+                    #{{ $index + 1 }} {{ step.title }}
+                </div>
+                <div class="column small-4">
+                    22 July 2015
+                </div>
+            </div>
         </div>
-        <div class="column small-5">
-            22 July 2015
-        </div>
-        <div class="column small-2">
-            edit
+        <div class="column small-1 flex flex-center" data-edit>
+            <div class="flex flex-center flex-horizontal-center">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+            </div>
         </div>
     </div>
 </div>
