@@ -8,4 +8,6 @@ angular.module('service', [
     'service.auth',
     'service.user',
     'service.project',
+    'service.milestone',
+    'service.step',
 ]);
