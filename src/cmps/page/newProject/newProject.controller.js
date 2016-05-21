@@ -47,7 +47,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
                 console.log(data);
                 $cookies.put(COOKIE.TOKEN, data.token);
                 $cookies.put(COOKIE.USER_ID, data.user.id);
-                //$window.location.assign('/');
+                $window.location.assign('/');
         });
     }
 }
