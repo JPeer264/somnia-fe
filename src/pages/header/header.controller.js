@@ -28,7 +28,6 @@ function HeaderController($scope,user,auth) {
         user.getCurrent().then(function(data){
             data = data.plain();
             vm.user = data.user.email;
-            console.log(vm.user);
         });
     }
 
