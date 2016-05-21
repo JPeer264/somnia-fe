@@ -56,26 +56,31 @@ function newProject() {
                         } else {
                             // the last one
                             // transform milestones to array
-                            var temp = [
-                                {
-                                    "title": scope.user.project.milestone[0].title,
-                                    "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()/1000
-                                },
-                                {
-                                    "title": scope.user.project.milestone[1].title,
-                                    "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()/1000
-                                },
-                                {
-                                    "title": scope.user.project.milestone[2].title,
-                                    "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()/1000
-                                }
-                            ];
 
-                            scope.user.project.milestone = null;
-                            delete scope.user.project.milestone;
-                            scope.user.project.milestones = temp;
+                            //only do this for first try - in case sb has to submit more than once (e.g. email already taken)
+                            if(!scope.user.project.milestones){
+                                var temp = [
+                                    {
+                                        "title": scope.user.project.milestone[0].title,
+                                        "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()/1000
+                                    },
+                                    {
+                                        "title": scope.user.project.milestone[1].title,
+                                        "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()/1000
+                                    },
+                                    {
+                                        "title": scope.user.project.milestone[2].title,
+                                        "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()/1000
+                                    }
+                                ];
 
-                            scope.user.project.dueDate = 1923790502134;
+                                scope.user.project.milestone = null;
+                                delete scope.user.project.milestone;
+                                scope.user.project.milestones = temp;
+
+                                //todo: get real date
+                                scope.user.project.dueDate = 1923790502134;
+                            }
 
                             scope.register(scope.user);
                         }
