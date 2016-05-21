@@ -41,13 +41,21 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
      * @param {Object} formData the userdata
      */
     $scope.register = function(formData) {
-        // todo if fails show error
         user.create(formData).then(function (data) {
-                var data = data.plain();
-                console.log(data);
-                $cookies.put(COOKIE.TOKEN, data.token);
-                $cookies.put(COOKIE.USER_ID, data.user.id);
-                $window.location.assign('/');
+            var data = data.plain();
+            console.log(data);
+            $cookies.put(COOKIE.TOKEN, data.token);
+            $cookies.put(COOKIE.USER_ID, data.user.id);
+            $window.location.assign('/');
+        }, function(err){
+            // todo if fails show error
+            console.info("Error from registerall");
+            console.error(err);
+
+            if(err.data.originalError == "email is already taken!"){
+                alert(err.data.originalError);
+            }
+
         });
     }
 }
