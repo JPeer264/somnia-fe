@@ -73,7 +73,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
     var templates = {
         header: {
             template: 'pages/header/header.html',
-            controller: 'HeaderCtrl'
+            controller: 'HeaderCtrl as vm'
         },
         footer: {
             template: 'pages/footer/footer.html',

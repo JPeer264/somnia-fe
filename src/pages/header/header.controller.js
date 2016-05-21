@@ -15,8 +15,22 @@ angular
  */
 HeaderController.$inject = [
     '$scope',
+    'user',
+    'auth'
 ];
 
-function HeaderController($scope) {
+function HeaderController($scope,user,auth) {
 
+    var vm = this;
+    vm.user = "";
+
+    if(auth.isAuthorized){
+        user.getCurrent().then(function(data){
+            data = data.plain();
+            vm.user = data.user.email;
+            console.log(vm.user);
+        });
+    }
+
+    
 }
