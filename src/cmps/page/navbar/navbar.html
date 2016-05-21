@@ -1,9 +1,9 @@
 <div class="navbar-header top-bar-left" id="navbar">
     <ul class="vertical medium-horizontal menu">
-        <li data-ng-class="{active: $state.current.data.activetab === 'about'}">
+        <li data-ng-class="{active: toState.data.activetab === 'about'}">
             <a href="#">about</a>
         </li>
-        <li data-ng-class="{active: $state.current.data.activetab === 'login'}">
+        <li data-ng-class="{active: toState.data.activetab === 'login'}">
             <a data-ng-href="#/user/{{currentUser.id}}" data-open="login">login</a>
         </li>
     </ul>

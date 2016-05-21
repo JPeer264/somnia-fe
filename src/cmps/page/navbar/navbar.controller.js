@@ -19,13 +19,4 @@ NavbarController.$inject = [
 
 function NavbarController($scope, $state) {
 
-    /**
-     * @ngdoc property
-     * @name $state
-     * @propertyOf cmps.page:NavbarCtrl
-     *
-     * @description
-     * The $state object
-     */
-    $scope.$state = $state;
 }
