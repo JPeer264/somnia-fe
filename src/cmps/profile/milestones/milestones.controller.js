@@ -28,7 +28,6 @@ function MilestonesController($scope, project) {
      * The data of the projects of the currentuser
      */
     project.getAll().then(function (data) {
-
-        $scope.project = data.project;
+        $scope.project = data.plain().user.project;
     });
 }
