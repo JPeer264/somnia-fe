@@ -8,6 +8,7 @@
  * @requires $cookies
  * @requires COOKIE
  * @requires $q
+ * @requires $http
  */
 angular
     .module('service.user')
@@ -18,11 +19,12 @@ user.$inject = [
     'Restangular',
     '$httpParamSerializer',
     '$cookies',
-    '$timeout'
+    '$timeout',
+    '$http'
 ];
 
 
-function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout) {
+function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout, $http) {
     // cache all promises - private
     var self = this;
     var _identity = undefined;
@@ -128,8 +130,11 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout)
      * @returns {Promise}   returns     promise
      */
     self.create = function(formData) {
-        return Restangular.one('register').customPOST($httpParamSerializer(formData));
-    }
+        
+        var serialized = JSON.stringify(formData);
+
+        return Restangular.one('registerall').customPOST({user: serialized});
+    };
 
     /**
      * @ngdoc method
