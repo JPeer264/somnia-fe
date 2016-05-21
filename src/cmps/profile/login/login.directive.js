@@ -25,11 +25,11 @@ function loginDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
-                // var elem = new Foundation.Reveal($('#login'));
+                var elem = new Foundation.Reveal($('#login'));
 
-                // iElm.find('.submit-login').bind('click', function() {
-                //     scope.login();
-                // });
+                $(document).on('click', '.submit-login', function() {
+                    scope.login();
+                });
             }
         };
 };
