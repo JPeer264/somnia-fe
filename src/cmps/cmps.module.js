@@ -3,4 +3,5 @@
 */
 angular.module('cmps', [
     'cmps.page',
+    'cmps.profile',
 ]);

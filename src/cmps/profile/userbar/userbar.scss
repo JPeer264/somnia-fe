@@ -1,0 +1,61 @@
+.userbar {
+    // width: 200px;
+    height: $header-height; // dropdown go 5px down
+    display: inline-block;
+    position: relative;
+    transition: .5s background;
+    color: white;
+
+    &:hover {
+        background: darken($secondary-color, 5%);
+        transition: .5s background;
+    }
+
+    > div {
+        height: inherit;
+    }
+
+    p {
+        margin: 0 5px 0 0;
+        padding: 0;
+        font-size: .7rem;
+
+        &:nth-of-type(1) {
+            margin-top: 5px;
+        }
+    }
+
+    .dropdown-pane {
+        color: black;
+        position: absolute;
+        right: 0;
+        top: $header-height !important;
+        left: initial !important;
+    }
+}
+
+.btn-userbar {
+    text-align: inherit;
+    display: flex;
+    flex-direction: row;
+
+    > div {
+        margin-right: $global-margin;
+
+        &:nth-of-type(1) {
+            margin-left: $global-margin;
+        }
+    }
+
+    .img {
+        // padding-right: $userbar-padding;
+        width: $userbar-image;
+        height: $userbar-image;
+
+        img {
+            width: 100%;
+            overflow: hidden;
+            border-radius: $userbar-image / 2;
+        }
+    }
+}

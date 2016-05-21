@@ -1,0 +1,32 @@
+#newProject {
+    font-size: 1rem;
+    white-space: nowrap;
+    transition: .5s transform;
+
+    form {
+        display: inline-block;
+        width: 100%;
+        padding: 0 $global-padding;
+    }
+
+    input {
+        width: 100%;
+        display: block;
+        padding: $global-padding;
+        margin: $global-margin 0 0;
+        border: 1px solid $secondary-color;
+
+        &:nth-of-type(1) {
+            margin: 0;
+        }
+
+        &[type='submit'] {
+            height: inherit;
+            width: 100%;
+            background: $secondary-color;
+            border: 1px solid $secondary-color;
+            padding: $global-padding;
+            color: $white;
+        }
+    }
+}

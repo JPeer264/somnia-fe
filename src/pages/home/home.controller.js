@@ -13,9 +13,10 @@ angular
  */
 HomeController.$inject = [
     '$scope',
+    'user'
 ];
 
-function HomeController($scope) {
+function HomeController($scope, user) {
 
     /**
      * @ngdoc property
@@ -27,5 +28,7 @@ function HomeController($scope) {
      */
     $scope.getUser = 'users';
 
-    $scope.testData = ['soda','beer','water','milk','wine','cognac'];
+    user.get().then(function(data) {
+        console.log(data);
+    });
 }

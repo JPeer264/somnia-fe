@@ -1,6 +1,11 @@
-<div id="header">
-    <p>{{ headerScope }}</p>
+<div id="header" class="flex flex-center">
     <div class="row">
-        <div data-navbar></div>
+        <div class="flex-start">
+            <p>{{ headerScope }}</p>
+        </div>
+        <div class="flex-end">
+            <div data-navbar data-ng-if="!isLoggedIn()"></div>
+            <div data-userbar data-ng-if="isLoggedIn()"></div>
+        </div>
     </div>
 </div>

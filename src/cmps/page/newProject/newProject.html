@@ -1,0 +1,40 @@
+<div id="newProject">
+    <!-- add new project -->
+    <form id="goal">
+        <div class="row">
+            <div class="column medium-6 medium-offset-3">
+                <div class="row flex-center reset-column-padding">
+                    <div class="column small-10">
+                        <input type="text" data-ng-model="user.goal" placeholder="Type your goal..." required>
+                    </div>
+                    <div class="column small-2">
+                        <input type="submit" value="Go!"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form id="milestone">
+        <div class="row">
+            <div class="column medium-6 medium-offset-3">
+                <div class="row flex-center reset-column-padding">
+                    <input type="text" data-ng-model="user.milestone[0]" placeholder="Milestone 1..." required>
+                    <input type="text" data-ng-model="user.milestone[1]" placeholder="Milestone 2..." required>
+                    <input type="text" data-ng-model="user.milestone[2]" placeholder="Milestone 3..." required>
+                    <input type="submit" value="Next!"></input>
+                </div>
+            </div>
+        </div>
+    </form>
+    <form id="personal-data">
+        <div class="row">
+            <div class="column medium-6 medium-offset-3">
+                <div class="row flex-center reset-column-padding">
+                        <input type="text" data-ng-model="user.email" placeholder="Email" required>
+                        <input type="submit" value="Start!"></input>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

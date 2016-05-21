@@ -5,4 +5,5 @@ angular.module('cmps.page', [
     'page.tooltip',
     'page.navbar',
     'page.slider',
+    'page.newProject',
 ]);

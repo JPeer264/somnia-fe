@@ -12,6 +12,7 @@
         'pages.home',
         'pages.error',
         'pages.profile',
+        'pages.landing',
     ]);
 
 })(window, window.angular);

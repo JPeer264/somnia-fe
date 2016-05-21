@@ -1,0 +1,25 @@
+#slider {
+    display: block;
+    width: 100%;
+    min-height: 100px;
+
+    .slider-background {
+        background-image: url("https://www.jpeer.at/railroad/testimage/slider.jpg");
+
+        .input {
+            padding: 10% 0;
+        }
+    }
+
+    .img {
+        width: 100%;
+        position: absolute;
+        padding-top: 100%;
+        background: rgba($secondary-color, .3);
+        // height: auto;
+        // min-height: 100px;
+        // position: absolute;
+        // top: 0;
+        // left: 0;
+    }
+}
