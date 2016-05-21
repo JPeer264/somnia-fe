@@ -47,6 +47,8 @@ function HomeController($scope, project, _) {
             steps.push(milestone.step);
         }
 
-        $scope.steps = _.flatten(steps);
+        var flatten = _.flatten(steps);
+
+        $scope.steps = flatten.slice().reverse();
     });
 }

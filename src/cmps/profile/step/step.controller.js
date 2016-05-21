@@ -19,4 +19,7 @@ StepController.$inject = [
 
 function StepController($scope, project) {
 
+    $scope.edit = function(id) {
+        // todo call edit page
+    }
 }

@@ -3,4 +3,13 @@
         padding: $global-padding;
         border: 1px solid $light-gray;
     }
+
+    .edit {
+        transition: .5s background;
+
+        &:hover {
+            background: $secondary-color;
+            transition: .5s background;
+        }
+    }
 }
