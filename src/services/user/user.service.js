@@ -130,7 +130,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
      * @returns {Promise}   returns     promise
      */
     self.create = function(formData) {
-        
+        Restangular.configuration.defaultHeaders['Content-Type'] = 'application/json';
         var serialized = JSON.stringify(formData);
 
         return Restangular.one('registerall').customPOST({user: serialized});
