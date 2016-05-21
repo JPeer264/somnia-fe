@@ -36,7 +36,7 @@ function AddStepController($scope, step) {
         step.create(milestoneId, stepObj).then(function(data) {
             var data = data.plain();
 
-            $scope.steps.push(data.step);
+            $scope.steps.unshift(data.step);
         });
     }
 }
