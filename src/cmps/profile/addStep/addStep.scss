@@ -3,6 +3,12 @@
         width: 100%;
     }
 
+    .md-button {
+        // not clean but works
+        float: right;
+        margin-right: 0;
+    }
+
     .md-button, .md-ripple-container {
         color: $white !important;
         width: 40px;
