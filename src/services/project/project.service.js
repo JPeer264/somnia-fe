@@ -32,7 +32,7 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
      * @returns {Promise} Returns a promise with all the milestones
      */
     self.getAll = function () {
-        return $timeout(function() {
+        /*return $timeout(function() {
             return {
                 "project": {
                     "milestones": [
@@ -73,7 +73,9 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
                     "done": false
                 }
             }
-        }, 500);
+        }, 500);*/
+        //console.log(Restangular.one('getuser').get());
+        return Restangular.one('getuser').get();
     }
 
     /**

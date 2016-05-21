@@ -70,10 +70,8 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout)
      * @returns {Promise} promise for the current user
      */
     self.getCurrent = function() {
-        var currentUserId = $cookies.get('user_id');
-
         if (!_promiseCache.current) {
-            _promiseCache.current = self.get(currentUserId);
+            _promiseCache.current = self.get();
         }
 
         return _promiseCache.current;
@@ -112,17 +110,10 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout)
      * @description
      * Get a specific user
      *
-     * @param   {Object}    id  the id from the user
      * @returns {Promise}       returns promise
      */
-    self.get = function(id) {
-        return $timeout(function() {
-            return {
-                id: 3,
-                name: 'Simon'
-            };
-        }, 1000);
-        // return Restangular.one('user', id).get();
+    self.get = function() {
+        return Restangular.one('getuser').get();
     }
 
     /**
