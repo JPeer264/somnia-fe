@@ -36,7 +36,6 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
      * call the auth.login() service and set token if it not fail
      */
     $scope.login = function() {
-        console.log($scope.userdata);
         auth.login($scope.userdata).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);

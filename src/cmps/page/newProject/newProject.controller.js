@@ -8,7 +8,11 @@ angular
  *
  * @requires $scope
  * @requires $state
+ * @requires $cookies
+ * @requires $window
  * @requires service.user
+ * @requires service.auth
+ * @requires COOKIE
  *
  * @description
  * NewProjectCtrl for the newProject directive
@@ -16,19 +20,24 @@ angular
 NewProjectController.$inject = [
     '$scope',
     '$state',
+    '$cookies',
+    '$window',
     'user',
-    '$timeout'
+    'auth',
+    'COOKIE',
 ];
 
-function NewProjectController($scope, $state, user, $timeout) {
+function NewProjectController($scope, $state, $cookies, $window, user, auth, COOKIE) {
     // todo delete $timeout if user.create() is implemented
 
     $scope.register = function(formData) {
-        // todo send a request user.create() with additional data
-        // todo redirect at success to home page (for init the milestones)
-        // todo if fails return $scope.user
+        // todo if fails show error
         user.create(formData).then(function (data) {
-            console.log(data);
+            auth.login($scope.userdata).then(function (data) {
+                $cookies.put(COOKIE.TOKEN, data.token);
+                $cookies.put(COOKIE.USER_ID, data.user.id);
+                $window.location.assign('/');
+            });
         });
     }
 }
