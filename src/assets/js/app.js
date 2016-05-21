@@ -7,8 +7,7 @@ angular.module('superpowerteam', [
     'cmps',
     'restangular',
     'ngCookies',
-    'ngMaterial',
-    'ngLodash'
+    'ngMaterial'
 ]);
 
 angular
