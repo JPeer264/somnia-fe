@@ -1,0 +1,7 @@
+<div class="milestone">
+    <ol class="progtrckr" data-progtrckr-steps="{{ project.milestones.length }}">
+        <li data-ng-class="{'progtrckr-done': milestone.done, 'progtrckr-todo': !milestone.done}" data-ng-repeat="milestone in project.milestones">
+            <span>{{ milestone.title }}</span>
+        </li>
+    </ol>
+</div>

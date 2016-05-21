@@ -12,6 +12,7 @@ crypt.$inject = [
 
 function crypt() {
     var encrypt = 'SECRET_CRYPT_HASH';
+    var self = this;
 
     /**
      * @ngdoc method
@@ -24,7 +25,7 @@ function crypt() {
      * @param  {String} toEncrypt - the string which should be encrypted
      * @return {String} the encrypted string
      */
-    this.encrypt = function(toEncrypt) {
+    self.encrypt = function(toEncrypt) {
         return CryptoJS.AES.encrypt(toEncrypt, encrypt).toString();
     }
 
@@ -39,7 +40,7 @@ function crypt() {
      * @param  {String} encryptedString - the string which should be decrypted
      * @return {String} the decrypted string
      */
-    this.decrypt = function(encryptedString) {
+    self.decrypt = function(encryptedString) {
         return CryptoJS.AES.decrypt(encryptedString, encrypt).toString(CryptoJS.enc.Utf8);
     }
 }

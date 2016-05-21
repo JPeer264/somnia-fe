@@ -1,0 +1,13 @@
+.add-step {
+    md-input-container {
+        width: 100%;
+    }
+
+    .md-button, .md-ripple-container {
+        color: $white !important;
+        width: 40px;
+        height: 40px;
+        border-radius: 20px;
+        min-width: initial;
+    }
+}

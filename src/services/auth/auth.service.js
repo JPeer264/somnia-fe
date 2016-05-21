@@ -31,11 +31,11 @@ auth.$inject = [
 ];
 
 function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpParamSerializer, user, $location, $timeout) {
-    var _authenticated = false,
-        token = Restangular.service('auth/token'),
-        self = this;
+    var _authenticated = false;
+    var token = Restangular.service('auth/token');
+    var self = this;
 
-    this.authorize = function() {
+    self.authorize = function() {
         if (!self.check()) {
             // user is not authenticated. stow the state they wanted before you
             // send them to the signin state, so you can return them when you're done
@@ -66,7 +66,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      *
      * @returns {Boolean} _authenticated
      */
-    this.isAuthorized = function() {
+    self.isAuthorized = function() {
         return _authenticated;
     }
 
@@ -81,7 +81,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      *
      * @returns {Boolean} same value as _authenticated
      */
-    this.check = function() {
+    self.check = function() {
         var token = $cookies.get(COOKIE.TOKEN);
         var payload;
         var timestampNow = Math.floor((new Date()).getTime() / 1000); // divided by 1000 since getTime() gives in ms
@@ -91,7 +91,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
             return false;
         }
 
-        payload = this.parseJwt(token);
+        payload = self.parseJwt(token);
 
         if (payload.exp > timestampNow) {
             _authenticated = true;
@@ -112,10 +112,10 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * Request a token and saves into $cookies if the token is valid
      * Redirect on successfully login to home
      *
-     * @param {String} formData email and password for the requested user
-     * @returns {Promise} Returns a promise with a token
+     * @param   {String}    formData email and password for the requested user
+     * @returns {Promise}   Returns a promise with a token
      */
-    this.login = function(formData) {
+    self.login = function(formData) {
         return Restangular.one('login').customPOST($httpParamSerializer(formData));
     }
 
@@ -129,7 +129,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      * @description
      * Deletes the user token and return to the welcome page
      */
-    this.logout = function() {
+    self.logout = function() {
         $cookies.remove(COOKIE.TOKEN);
         $cookies.remove(COOKIE.USER_ID);
         $window.location.assign('/');
@@ -145,7 +145,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
      *
      * @returns {Object} payload content from JWT
      */
-    this.parseJwt = function(token) {
+    self.parseJwt = function(token) {
         var base64Url = token.split('.')[1];
         var base64 = base64Url.replace('-', '+').replace('_', '/');
 

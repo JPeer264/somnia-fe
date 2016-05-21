@@ -7,16 +7,17 @@ angular
  * @name pages.home:HomeCtrl
  *
  * @requires $scope
+ * @requires project
  *
  * @description
  * HomeCtrl for the home page
  */
 HomeController.$inject = [
     '$scope',
-    'user'
+    'project'
 ];
 
-function HomeController($scope, user) {
+function HomeController($scope, project) {
 
     /**
      * @ngdoc property
@@ -28,7 +29,7 @@ function HomeController($scope, user) {
      */
     $scope.getUser = 'users';
 
-    user.get().then(function(data) {
+    project.getAll().then(function(data) {
         console.log(data);
     });
 }
