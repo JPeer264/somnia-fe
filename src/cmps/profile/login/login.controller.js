@@ -36,16 +36,11 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
      * call the auth.login() service and set token if it not fail
      */
     $scope.login = function() {
-
-        auth.login($scope.user).then(function (data) {
+        console.log($scope.userdata);
+        auth.login($scope.userdata).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
             $window.location.assign('/');
-        }, function (data) {
-            // function for errors
-            if (data.status === 401) {
-                $scope.error = 'ERROR_WRONG_CREDENTIALS';
-            }
         });
     }
 
