@@ -1,20 +1,17 @@
-<div class="other-milestone-panel">
-    <div class="other-milestone-panel-inner">
-        <div class="other-milestone-header">
-            Goalname from another person
-        </div>
-        <div class="other-milestone-meta flex">
-            <div class="flex flex-start">
-                by Personsname
+<div ng-repeat="project in vm.projectdata">
+    <div class="other-milestone-panel">
+        <div class="other-milestone-panel-inner">
+            <div class="other-milestone-header">
+                {{project.title}}
             </div>
-            <div class="flex flex-end">
-                created at DATE
+            <div class="other-milestone-meta flex">
+                <div class="flex flex-end">
+                    created at {{project.createdAt}}
+                </div>
             </div>
-        </div>
-        <div class="other-milestone-content">
-            <span>Milestone 1</span>
-            <span>Milestone 2</span>
-            <span>Milestone 3</span>
+            <div class="other-milestone-content" ng-repeat="milestone in project.milestones">
+                <span>{{milestone.title}}</span>
+            </div>
         </div>
     </div>
 </div>
