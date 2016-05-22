@@ -8,9 +8,11 @@
                 </a>
             </div>
         </div>
-        <div class="column small-4">
-            <div data-navbar data-ng-if="!isLoggedIn()"></div>
-            <div data-userbar data-ng-if="isLoggedIn()"></div>
+        <div class="column small-4" data-ng-class="{'flex flex-center': !isLoggedIn()}">
+            <div class="row flex-end">
+                <div data-navbar data-ng-if="!isLoggedIn()"></div>
+                <div data-userbar data-ng-if="isLoggedIn()"></div>
+            </div>
         </div>
     </div>
 </div>
