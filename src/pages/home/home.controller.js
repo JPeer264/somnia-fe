@@ -31,27 +31,25 @@ function HomeController($scope, project, milestone, _) {
     $scope.getUser = 'users';
 
     _getMileStones();
-    
-    $scope.currentDone = function(){
 
-        console.log($scope.current);
-        milestone.update($scope.current.id,{
+    $scope.currentDone = function(){
+        milestone.update($scope.next.id,{
             finishedDate: new Date().getTime()
         }).then(function(data){
             data = data.plain();
-            console.log('update current success');
-            console.log(data);
-            if(data.last){
+
+
+            if (data.last){
                 _finishProject();
-            }else{
+            } else {
                 _getMileStones();
             }
+
         }, function(err){
             console.log('update current error:');
             console.log(err);
-            
+
         });
-        
     };
 
     function _finishProject(){
@@ -68,11 +66,12 @@ function HomeController($scope, project, milestone, _) {
     function _getMileStones(){
         project.getAll().then(function(data) {
             data = data.plain();
-            console.log(data);
+
             $scope.project = data.user.project;
-            
+
             var milestones = data.user.project.milestones;
             var steps = [];
+            var cachedMilestone;
 
             for (var milestone of milestones) {
                 if (!milestone.done) {
@@ -89,22 +88,26 @@ function HomeController($scope, project, milestone, _) {
                 return a.dueDate - b.dueDate;
             });
 
-            $scope.current = $scope.milestones.filter(function(milestone){
+            $scope.next = $scope.milestones.filter(function(milestone){
+                if (cachedMilestone !== undefined) {
+                    if (cachedMilestone.done) {
+                        $scope.current = cachedMilestone;
+                    }
+                }
+
+                cachedMilestone = milestone;
                 return !milestone.done;
             })[0];
 
-            if($scope.current){
-
+            if ($scope.next){
                 var date1 = new Date();
-                var date2 = new Date($scope.current.dueDate);
+                var date2 = new Date($scope.next.dueDate);
                 var timeDiff = Math.abs(date2.getTime() - date1.getTime());
                 var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
-                $scope.current.dueIn = diffDays;
+                $scope.next.dueIn = diffDays;
             }
-
         });
-
     }
 }
 
