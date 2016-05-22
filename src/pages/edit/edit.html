@@ -1,10 +1,34 @@
 <h1>
     <span ng-if="!vm.editMode">{{vm.project.title}}</span>
     <input type="text" ng-model="vm.project.title" ng-if="vm.editMode"/>
-    <i class="fa fa-pencil" ng-click="vm.toggleEditMode()" ng-if="!vm.editMode"></i>
-    <i class="fa fa-floppy-o" ng-click="vm.saveProjectTitle()" ng-if="vm.editMode"></i>
-    <i class="fa fa-times" ng-click="vm.toggleEditMode()" ng-if="vm.editMode"></i>
+    <i class="fa fa-pencil button" ng-click="vm.toggleEditMode()" ng-if="!vm.editMode"></i>
+    <i class="fa fa-floppy-o button" ng-click="vm.saveProjectTitle()" ng-if="vm.editMode"></i>
+    <i class="fa fa-times button" ng-click="vm.toggleEditMode()" ng-if="vm.editMode"></i>
 </h1>
+
+
+
+<form id="goal">
+    <div class="row">
+        <div class="column medium-6 medium-offset-3">
+            <div class="row flex-center reset-column-padding">
+                <form name="milestoneForm" >
+                <div class="column small-10">
+                    <md-input-container class="remove-error">
+                        <label>Add Milestone</label>
+                        <input type="text" data-ng-model="vm.newMilestone.title" required />
+                    </md-input-container>
+                    <input type="date" data-ng-model="vm.newMilestone.dueDate" required/>
+                </div>
+                <div class="column small-2">
+                    <button data-ng-click="vm.addMilestone()" ><i class="fa fa-floppy-o button" ></i></button>
+                </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</form>
 
 <ul>
     <div data-ms-item data-ng-repeat="milestone in vm.milestones | orderBy: 'dueDate' "></div>
