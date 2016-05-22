@@ -81,4 +81,18 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
     self.delete = function (id, formData) {
         return Restangular.one('project', id).customPUT($httpParamSerializer(formData));
     }
+
+    /**
+     * @ngdoc method
+     * @name service.project#getLatestProjects
+     * @methodOf service.project
+     *
+     * @description
+     * Gets the latest 6  projects
+     *
+     * @returns {Promise} Returns   a promise
+     */
+    self.getLatestProjects = function () {
+        return Restangular.one('projects').get();
+    }
 }
