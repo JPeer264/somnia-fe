@@ -35,6 +35,16 @@ function newProject() {
                 var index;
                 var newWidth;
 
+                // resize fix
+                $(window).resize(function() {
+                    formElemWidth = $formElem.outerWidth(true);
+                    newWidth = formElemWidth * index;
+
+                    $formElem.css({
+                        'transform': 'translate3d(-' + newWidth + 'px, 0px, 0px)'
+                    });
+                });
+
                 $(document).on('click', 'button[data-back]', function (data) {
 
                     if (index === 1) {
