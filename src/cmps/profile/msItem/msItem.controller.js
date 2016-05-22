@@ -28,9 +28,20 @@ function msItemCtrl($scope, milestone) {
     ctrl.edit = edit;
     
     ///////////////////////
-    function edit(ms) {
+    function edit(msId, msTitle, msDueDate) {
+
+        msDueDate = msDueDate.getTime();
+        console.log(msDueDate);
+
         if(ctrl.editMode){
-            console.log(ms);
+            milestone.update(msId, {
+                title: msTitle,
+                dueDate: msDueDate
+            }).then(function(data){
+                data = data.plain();
+                console.info("response from saving:");
+                console.log(data);
+            });
         }
         ctrl.editMode = !ctrl.editMode;
         

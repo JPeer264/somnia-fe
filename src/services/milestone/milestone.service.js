@@ -11,10 +11,11 @@ angular
 
 milestone.$inject = [
     '$rootScope',
+    '$httpParamSerializer',
     'Restangular'
 ];
 
-function milestone($rootScope, Restangular) {
+function milestone($rootScope, $httpParamSerializer, Restangular) {
     var self = this;
 
     /**

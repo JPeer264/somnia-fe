@@ -4,15 +4,15 @@
             <div class="row padding">
                 <div class="column medium-8 small-12">
                     <span ng-if="!ctrl.editMode">#{{ $index +1 }} {{ milestone.title }}</span>
-                    <input type="text" value="{{milestone.title}}" ng-if="ctrl.editMode"/>
+                    <input type="text" ng-model="milestone.title" ng-if="ctrl.editMode"/>
                 </div>
                 <div class="column small-4 hide-for-small-only">
-                    <span ng-if="!ctrl.editMode">{{ milestone.dueDate.slice(0,10) }}</span>
-                    <input type="date" value="{{milestone.dueDate.slice(0,10)}}" ng-if="ctrl.editMode"/>
+                    <span ng-if="!ctrl.editMode">{{ milestone.formatDate}}</span>
+                    <input type="date" data-ng-model="milestone.dueDate" ng-if="ctrl.editMode"/>
                 </div>
             </div>
         </div>
-        <div class="column small-1 flex flex-center edit" ng-click="ctrl.edit(milestone)">
+        <div class="column small-1 flex flex-center edit" ng-click="ctrl.edit(milestone.id, milestone.title, milestone.dueDate)">
             <div class="flex flex-center flex-horizontal-center">
                 <i class="fa fa-pencil" aria-hidden="true" ng-if="!ctrl.editMode"></i>
                 <i class="fa fa-floppy-o" aria-hidden="true" ng-if="ctrl.editMode"></i>
