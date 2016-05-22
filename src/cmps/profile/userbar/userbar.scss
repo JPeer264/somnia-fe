@@ -5,6 +5,7 @@
     position: relative;
     transition: .5s background;
     color: white;
+    float: right;
 
     &:hover {
         background: darken($secondary-color, 5%);

@@ -1,9 +1,14 @@
 <div id="header" class="flex flex-center">
     <div class="row">
-        <div class="flex-start">
-            <p>{{ headerScope }}</p>
+        <div class="column small-4"></div>
+        <div class="column small-4 flex flex-center flex-horizontal-center">
+            <div class="logo">
+                <a href="#/">
+                    <h4>somnia</h4>
+                </a>
+            </div>
         </div>
-        <div class="flex-end">
+        <div class="column small-4">
             <div data-navbar data-ng-if="!isLoggedIn()"></div>
             <div data-userbar data-ng-if="isLoggedIn()"></div>
         </div>
