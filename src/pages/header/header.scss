@@ -1,4 +1,26 @@
 #header {
     background: $secondary-color;
     height: $header-height;
+
+    h4 {
+        margin: 0;
+        color: white;
+    }
+
+    .logo {
+        a {
+            height: 100%;
+            display: block;
+            padding: $global-padding/2;
+
+            h4 {
+                transition: .5s color;
+            }
+
+            &:hover h4 {
+                color: #CDDC39;
+                transition: .5s color;
+            }
+        }
+    }
 }
