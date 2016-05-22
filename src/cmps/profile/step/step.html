@@ -10,7 +10,6 @@
                             <input type="text" data-ng-model="step.edit" required />
                         </md-input-container>
                         <button>
-                            <i class="fa fa-check" data-ng-click="edit(step.id)"></i>
                             <i class="fa fa-times" data-ng-click="changeId(0)"></i>
                         </button>
                     </div>
@@ -20,9 +19,10 @@
                 </div>
             </div>
         </div>
-        <div class="column small-1 flex flex-center edit" data-ng-click="openEdit(step.id)">
+        <div class="column small-1 flex flex-center edit"  data-ng-click="changeId() !== step.id ? openEdit(step.id) : edit(step.id)">
             <div class="flex flex-center flex-horizontal-center">
-                <i class="fa fa-pencil" aria-hidden="true"></i>
+                <i class="fa fa-pencil" aria-hidden="true" data-ng-if="changeId() !== step.id"></i>
+                <i class="fa fa-floppy-o" aria-hidden="true" data-ng-if="changeId() === step.id"></i>
             </div>
         </div>
     </div>
