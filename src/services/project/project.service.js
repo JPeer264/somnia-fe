@@ -5,6 +5,7 @@
  * @requires $rootScope
  * @requires Restangular
  * @requires $httpParamSerializer
+ * @requires service.user
  */
 angular
     .module('service.project')
@@ -14,12 +15,11 @@ project.$inject = [
     '$rootScope',
     'Restangular',
     '$httpParamSerializer',
-    '$timeout'
+    'user'
 ];
 
-function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
+function project($rootScope, Restangular, $httpParamSerializer, user) {
     var self = this;
-    // todo delete $timeout and add real request
 
     /**
      * @ngdoc method
@@ -32,7 +32,7 @@ function project($rootScope, Restangular, $httpParamSerializer, $timeout) {
      * @returns {Promise} Returns a promise with all the milestones
      */
     self.getAll = function () {
-        return Restangular.one('getuser').get();
+        return user.get();
     }
 
     /**

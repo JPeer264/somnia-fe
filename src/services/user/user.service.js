@@ -63,24 +63,6 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
 
     /**
      * @ngdoc method
-     * @name service.user#getCurrent
-     * @methodOf service.user
-     *
-     * @description
-     * Get the ID and Name from the logged in user
-     *
-     * @returns {Promise} promise for the current user
-     */
-    self.getCurrent = function() {
-        if (!_promiseCache.current) {
-            _promiseCache.current = self.get();
-        }
-
-        return _promiseCache.current;
-    }
-
-    /**
-     * @ngdoc method
      * @name service.user#currentUser
      * @methodOf service.user
      *
@@ -96,7 +78,7 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
      * Set the rootscope of currentUser
      */
     self.setCurrent = function() {
-        return (self.getCurrent()).then(function(data) {
+        return (self.get()).then(function(data) {
             var userdata = data.plain().user;
             _identity = userdata;
             _authenticated = true;
@@ -115,7 +97,11 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
      * @returns {Promise}       returns promise
      */
     self.get = function() {
-        return Restangular.one('getuser').get();
+        if (!_promiseCache.current) {
+            _promiseCache.current = Restangular.one('getuser').get();
+        }
+
+        return _promiseCache.current;
     }
 
     /**

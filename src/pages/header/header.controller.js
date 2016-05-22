@@ -25,11 +25,9 @@ function HeaderController($scope,user,auth) {
     vm.user = "";
 
     if(auth.isAuthorized){
-        user.getCurrent().then(function(data){
+        user.get().then(function(data){
             data = data.plain();
             vm.user = data.user.email;
         });
     }
-
-    
 }
