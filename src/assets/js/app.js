@@ -199,6 +199,8 @@ function run($rootScope, $stateParams, auth, user) {
         return auth.isAuthorized();
     }
 
+    $rootScope.moment = moment;
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toStateParams) {
         // todo check if loggedin user wants to see the landing page
         $rootScope.toState = toState;
