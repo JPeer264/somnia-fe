@@ -6,4 +6,5 @@ angular.module('cmps.page', [
     'page.navbar',
     'page.slider',
     'page.newProject',
+    'page.otherMilestones',
 ]);

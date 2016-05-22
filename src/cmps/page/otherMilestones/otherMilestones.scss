@@ -1,0 +1,46 @@
+.other-milestone-panel {
+    margin-top: $global-margin;
+
+    .row {
+        margin: 0;
+    }
+
+    .other-milestone-panel-inner {
+        border: 1px solid $secondary-color;
+        background: white;
+    }
+
+    .other-milestone-header {
+        height: auto;
+        padding: $global-padding/2;
+        background: $secondary-color;
+        color: $white;
+
+        h3, h4, h5 {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    .other-milestone-meta {
+        padding: 2px 5px;
+        background: $primary-color;
+        color: $dark-gray;
+        font-size: .8rem;
+    }
+
+    .other-milestone-content {
+        padding: 0 5px;
+
+        span {
+            display: block;
+            padding: $global-padding/2 0;
+
+            &:before {
+                font-family: FontAwesome;
+                font-size: .8rem;
+                content: '\f067    ';
+            }
+        }
+    }
+}
