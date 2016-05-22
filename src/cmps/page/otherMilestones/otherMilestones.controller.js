@@ -13,14 +13,16 @@ angular
  */
 OtherMilestonesController.$inject = [
     '$scope',
-    'project'
+    'project',
+    'user'
 ];
 
-function OtherMilestonesController($scope,project) {
+function OtherMilestonesController($scope,project,user) {
     
     //vars
     var vm = this;
-    
+    vm.userName = [];
+
     //functions
     vm.projects = projects;
 
@@ -31,8 +33,14 @@ function OtherMilestonesController($scope,project) {
     }
 
     function projects() {
+        var name = []
         project.getLatestProjects().then(function (data) {
             vm.projectdata = data.plain();
+            vm.projectdata.forEach(function(pjt){
+                user.getSpecificUser(pjt.owner).then(function (data) {
+                    pjt.user = data;
+                })
+            })
         })
     }
 

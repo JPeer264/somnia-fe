@@ -120,6 +120,21 @@ function user($rootScope, Restangular, $httpParamSerializer, $cookies, $timeout,
 
     /**
      * @ngdoc method
+     * @name service.user#getspecific
+     * @methodOf service.user
+     *
+     * @description
+     * Get a specific user
+     *
+     * @id      {int}           the id of the user
+     * @returns {Promise}       returns promise
+     */
+    self.getSpecificUser = function(id) {
+        return Restangular.one('getspecificuser', id).get();
+    }
+
+    /**
+     * @ngdoc method
      * @name service.user#create
      * @methodOf service.user
      *
