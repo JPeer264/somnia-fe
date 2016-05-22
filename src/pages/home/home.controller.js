@@ -44,7 +44,10 @@ function HomeController($scope, project, _) {
         var steps = [];
 
         for (var milestone of milestones) {
-            steps.push(milestone.step);
+            if (!milestone.done) {
+                steps.push(milestone.step);
+                break;
+            }
         }
 
         var flatten = _.flatten(steps);
