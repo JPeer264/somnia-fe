@@ -101,6 +101,9 @@ function HomeController($scope, project, milestone, _) {
                 var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
 
                 $scope.current.dueIn = diffDays;
+            }else{
+                console.log('no current');
+                $scope.current = null;
             }
 
         });
