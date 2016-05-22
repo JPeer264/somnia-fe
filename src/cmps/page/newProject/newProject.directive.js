@@ -26,9 +26,30 @@ function newProject() {
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
                 var $self = $(this);
-                var $formElem = $('#newProject');
+                var $formElem = $('#newProject .transform');
                 var $forms = $formElem.find('form');
-                var $dates = $formElem.find('input[type=date]')
+                var $dates = $formElem.find('input[type=date]');
+
+                // transform variables
+                var formElemWidth = $formElem.outerWidth(true);
+                var index;
+                var newWidth;
+
+                $(document).on('click', 'button[data-back]', function (data) {
+
+                    if (index === 1) {
+                        scope.isFirstForm = true;
+                    }
+
+                    index--;
+                    newWidth = newWidth - formElemWidth;
+
+                    $formElem.css({
+                        'transform': 'translate3d(-' + newWidth + 'px, 0px, 0px)'
+                    });
+
+                    scope.$apply();
+                });
 
                 // todo delete
                 $formElem.css({
@@ -43,9 +64,9 @@ function newProject() {
                 // transform logic
                 $forms.each(function (key, value) {
                     $(this).submit(function (e) {
-                        var formElemWidth = $formElem.outerWidth(true);
-                        var index = (key + 1);
-                        var newWidth = formElemWidth * index;
+                        scope.isFirstForm = false;
+                        index = (key + 1);
+                        newWidth = formElemWidth * index;
 
                         e.preventDefault();
 
@@ -83,7 +104,7 @@ function newProject() {
                             }
                             scope.register(scope.user);
                         }
-
+                        scope.$apply();
                     });
                 });
             }

@@ -1,6 +1,10 @@
 @import '_foundation-flex';
 @import '_variables';
 
+body, html {
+    overflow-x: hidden;
+}
+
 .flex {
     display: flex;
     justify-content: space-between;

@@ -1,87 +1,106 @@
 <div id="newProject">
-    <!-- add new project -->
-    <form id="goal">
-        <div class="row">
-            <div class="column medium-6 medium-offset-3">
-                <div class="row flex-center reset-column-padding">
-                    <div class="column small-10">
-                        <h1>What's your dream?</h1>
-                        <input type="text" data-ng-model="user.project.title" placeholder="Run a marathon in 4 hours" required>
-                    </div>
-                    <div class="column small-2">
-                        <input type="submit" value="Go!"/>
-                    </div>
-                </div>
+    <button data-ng-if="!isFirstForm" data-back>Back</button>
+    <div class="transform">
+        <!-- add new project -->
+        <div>
+            <div class="title flex flex-center flex-horizontal-center">
+                <h3>What's your dream?</h3>
             </div>
-        </div>
-    </form>
-    <form id="dueDate">
-        <div class="row">
-            <div class="column medium-6 medium-offset-3">
-                <div class="row flex-center reset-column-padding">
-                    <div class="column small-10">
-                        <h1>Until when?</h1>
-                        <input type="date" name="" data-ng-model="user.project.dueDate" required />
-                    </div>
-                    <div class="column small-2">
-                        <input type="submit" value="Go!"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
-    <form id="milestone">
-        <div class="row">
-            <div class="column medium-6 medium-offset-3">
-                <div class="row flex-center reset-column-padding">
-                    <h1>What steps do you need to make it happen?</h1>
-                    <div class="column small-12 input-margin">
-                        <div class="row flex-center">
-                            <div class="column small-6 flex-start">
-                                <input type="text" data-ng-model="user.project.milestone[0].title" placeholder="Milestone 1..." required />
+            <form id="goal">
+                <div class="row">
+                    <div class="column medium-6 medium-offset-3">
+                        <div class="row flex-center reset-column-padding">
+                            <div class="column small-10">
+                                <input type="text" data-ng-model="user.project.title" placeholder="Run a marathon in 4 hours" required>
                             </div>
-                            <div class="column small-6 flex-end">
-                                <input type="date" name="" data-ng-model="user.project.milestone[0].date" required />
+                            <div class="column small-2">
+                                <input type="submit" value="Go!"/>
                             </div>
                         </div>
                     </div>
-                    <div class="column small-12 input-margin">
-                        <div class="row flex-center">
-                            <div class="column small-6 flex-start">
-                                <input type="text" data-ng-model="user.project.milestone[1].title" placeholder="Milestone 2..." required />
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="title flex flex-center flex-horizontal-center">
+                <h3>Until when?</h3>
+            </div>
+            <form id="dueDate">
+                <div class="row">
+                    <div class="column medium-6 medium-offset-3">
+                        <div class="row flex-center reset-column-padding">
+                            <div class="column small-10">
+                                <input type="date" name="" data-ng-model="user.project.dueDate" required />
                             </div>
-                            <div class="column small-6 flex-end">
-                                <input type="date" name="" data-ng-model="user.project.milestone[1].date" required />
+                            <div class="column small-2">
+                                <input type="submit" value="Go!"/>
                             </div>
                         </div>
                     </div>
-                    <div class="column small-12 input-margin">
-                        <div class="row flex-center">
-                            <div class="column small-6 flex-start">
-                                <input type="text" data-ng-model="user.project.milestone[2].title" placeholder="Milestone 3..." required />
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="title flex flex-center flex-horizontal-center">
+                <h3>What steps do you need to make it happen?</h3>
+            </div>
+            <form id="milestone">
+                <div class="row">
+                    <div class="column medium-6 medium-offset-3">
+                        <div class="row flex-center reset-column-padding">
+                            <div class="column small-12 input-margin">
+                                <div class="row flex-center">
+                                    <div class="column small-6 flex-start">
+                                        <input type="text" data-ng-model="user.project.milestone[0].title" placeholder="Milestone 1..." required />
+                                    </div>
+                                    <div class="column small-6 flex-end">
+                                        <input type="date" name="" data-ng-model="user.project.milestone[0].date" required />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="column small-6 flex-end">
-                                <input type="date" name="" data-ng-model="user.project.milestone[2].date" required />
+                            <div class="column small-12 input-margin">
+                                <div class="row flex-center">
+                                    <div class="column small-6 flex-start">
+                                        <input type="text" data-ng-model="user.project.milestone[1].title" placeholder="Milestone 2..." required />
+                                    </div>
+                                    <div class="column small-6 flex-end">
+                                        <input type="date" name="" data-ng-model="user.project.milestone[1].date" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="column small-12 input-margin">
+                                <div class="row flex-center">
+                                    <div class="column small-6 flex-start">
+                                        <input type="text" data-ng-model="user.project.milestone[2].title" placeholder="Milestone 3..." required />
+                                    </div>
+                                    <div class="column small-6 flex-end">
+                                        <input type="date" name="" data-ng-model="user.project.milestone[2].date" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-margin">
+                                <input type="submit" value="Next!"/>
                             </div>
                         </div>
                     </div>
-                    <div class="input-margin">
-                        <input type="submit" value="Next!"/>
+                </div>
+            </form>
+        </div>
+        <div>
+            <div class="title flex flex-center flex-horizontal-center">
+                <h3>What's your email adress?</h3>
+            </div>
+            <form id="personal-data">
+                <div class="row">
+                    <div class="column medium-6 medium-offset-3">
+                        <div class="row flex-center reset-column-padding">
+                                <input type="email" data-ng-model="user.email" placeholder="Email" required>
+                                <input type="submit" value="Start!"/>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
-    </form>
-    <form id="personal-data">
-        <div class="row">
-            <div class="column medium-6 medium-offset-3">
-                <div class="row flex-center reset-column-padding">
-                        <h1>What's your email adress?</h1>
-                        <input type="email" data-ng-model="user.email" placeholder="Email" required>
-                        <input type="submit" value="Start!"/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>

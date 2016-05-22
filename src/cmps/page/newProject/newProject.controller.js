@@ -43,7 +43,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
     $scope.register = function(formData) {
         user.create(formData).then(function (data) {
             var data = data.plain();
-            console.log(data);
+
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
             $window.location.assign('/');
@@ -58,4 +58,17 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
 
         });
     }
+
+    /**
+     * @ngdoc property
+     * @name $scope.isFirstForm
+     * @propertyOf cmps.page:NewProjectCtrl
+     *
+     * @description
+     * setter and getter from isFirstForm
+     *
+     * @param   {Boolean} boo   the new boolesn * not required
+     * @return  {Boolean}       isFirstForm
+     */
+    $scope.isFirstForm = true;
 }

@@ -1,12 +1,40 @@
 #newProject {
     font-size: 1rem;
-    white-space: nowrap;
-    transition: .5s transform;
+    position: relative;
+
+    > button {
+        position: absolute;
+        top: $global-margin;
+        left: $global-margin;
+        padding: $global-padding;
+        background: $secondary-color;
+        color: $white;
+        z-index: 2;
+    }
+
+    .title {
+        width: 100%;
+        background: rgba($white, .6);
+        margin: $global-margin*2 0 $global-margin;
+
+        h3 {
+            margin: 0;
+        }
+    }
+
+    .transform {
+        transition: .5s transform;
+        white-space: nowrap;
+
+        > div {
+            display: inline-block;
+            width: 100%;
+        }
+    }
 
     form {
-        display: inline-block;
-        width: 100%;
         padding: 0 $global-padding;
+
     }
 
     .input-margin {
