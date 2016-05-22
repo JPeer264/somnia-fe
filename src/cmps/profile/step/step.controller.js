@@ -21,7 +21,6 @@ function StepController($scope, step) {
     var changeId = 0;
 
     $scope.changeId = function (id) {
-        console.log(changeId);
         changeId = id === undefined ? changeId : id;
 
         return changeId;
