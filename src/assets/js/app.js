@@ -161,6 +161,23 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                     controller: templates.footer.controller
                 },
             }
+        })
+        .state('edit', {
+            url: '/edit',
+            views: {
+                header: {
+                    templateUrl: templates.header.template,
+                    controller: templates.header.controller
+                },
+                main: {
+                    templateUrl: 'pages/edit/edit.html',
+                    controller: 'EditCtrl as vm'
+                },
+                footer: {
+                    templateUrl: templates.footer.template,
+                    controller: templates.footer.controller
+                }
+            }
         });
 
     localStorageServiceProvider

@@ -1,0 +1,11 @@
+<h1>
+    <span ng-if="!vm.editMode">{{vm.project.title}}</span>
+    <input type="text" ng-model="vm.project.title" ng-if="vm.editMode"/>
+    <i class="fa fa-pencil" ng-click="vm.toggleEditMode()" ng-if="!vm.editMode"></i>
+    <i class="fa fa-floppy-o" ng-click="vm.saveProjectTitle()" ng-if="vm.editMode"></i>
+    <i class="fa fa-times" ng-click="vm.toggleEditMode()" ng-if="vm.editMode"></i>
+</h1>
+
+<ul>
+    <div data-ms-item data-ng-repeat="milestone in vm.milestones | orderBy: 'dueDate' "></div>
+</ul>
