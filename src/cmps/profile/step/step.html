@@ -1,6 +1,6 @@
 <div class="step">
     <div class="row">
-        <div class="column small-11">
+        <div class="column small-10 medium-11">
             <div class="row padding">
                 <div class="column medium-8 small-12">
                     #{{ steps.length - $index }} <span data-edit="{{ step.id }}">{{ step.title }}</span>
@@ -19,7 +19,7 @@
                 </div>
             </div>
         </div>
-        <div class="column small-1 flex flex-center edit"  data-ng-click="changeId() !== step.id ? openEdit(step.id) : edit(step.id)">
+        <div class="column small-2 medium-1 flex flex-center edit"  data-ng-click="changeId() !== step.id ? openEdit(step.id) : edit(step.id)">
             <div class="flex flex-center flex-horizontal-center">
                 <i class="fa fa-pencil" aria-hidden="true" data-ng-if="changeId() !== step.id"></i>
                 <i class="fa fa-floppy-o" aria-hidden="true" data-ng-if="changeId() === step.id"></i>
