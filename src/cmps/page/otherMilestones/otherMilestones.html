@@ -6,10 +6,13 @@
             </div>
             <div class="other-milestone-meta flex">
                 <div class="flex flex-end">
-                    created at {{project.createdAt}}
+                    created by {{project.user}}
+                </div>
+                <div class="flex flex-end">
+                    created at {{project.createdAt.slice(0,10)}}
                 </div>
             </div>
-            <div class="other-milestone-content" ng-repeat="milestone in project.milestones">
+            <div class="other-milestone-content" ng-repeat="milestone in project.milestones.slice(0,3)">
                 <span>{{milestone.title}}</span>
             </div>
         </div>
