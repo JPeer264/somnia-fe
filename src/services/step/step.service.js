@@ -35,7 +35,7 @@ function step($rootScope, Restangular, $httpParamSerializer) {
 
     /**
      * @ngdoc method
-     * @name service.step#delete
+     * @name service.step#create
      * @methodOf service.step
      *
      * @description
@@ -47,6 +47,22 @@ function step($rootScope, Restangular, $httpParamSerializer) {
      */
     self.create = function(milestoneId, formData) {
         return Restangular.one('milestone', milestoneId).one('step').customPOST($httpParamSerializer(formData));
+    }
+
+    /**
+     * @ngdoc method
+     * @name service.step#update
+     * @methodOf service.step
+     *
+     * @description
+     * Adds a specific step to a milestone
+     *
+     * @param   {Integer}   id          the milestone where the step has to be added
+     * @param   {Object}    formData    the form data
+     * @returns {Promise}   Returns     a promise with the callback data
+     */
+    self.update = function(id, formData) {
+        return Restangular.one('step', id).customPUT($httpParamSerializer(formData));
     }
 
     /**
