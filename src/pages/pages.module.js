@@ -13,6 +13,7 @@
         'pages.error',
         'pages.profile',
         'pages.landing',
+        'pages.edit'
     ]);
 
 })(window, window.angular);

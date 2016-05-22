@@ -7,4 +7,5 @@ angular.module('cmps.profile', [
     'profile.milestones',
     'profile.addStep',
     'profile.step',
+    'profile.msItem'
 ]);
