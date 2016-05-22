@@ -7,19 +7,40 @@ angular
  * @name cmps.profile:StepCtrl
  *
  * @requires $scope
- * @requires service.project
+ * @requires service.step
  *
  * @description
  * Step directive controller
  */
 StepController.$inject = [
     '$scope',
-    'project'
+    'step'
 ];
 
-function StepController($scope, project) {
+function StepController($scope, step) {
+    var changeId = 0;
 
-    $scope.edit = function(id) {
-        // todo call edit page
+    $scope.changeId = function (id) {
+        console.log(changeId);
+        changeId = id === undefined ? changeId : id;
+
+        return changeId;
+    }
+
+    $scope.edit = function (id) {
+        $scope.changeId(0);
+
+        if (!$scope.step.edit) {
+            return;
+        }
+
+        step.update(id, {title: $scope.step.edit}).then(function (data) {
+            data = data.plain();
+            $scope.step.title = data.step.title;
+        });
+    }
+
+    $scope.openEdit = function (id) {
+        $scope.changeId(id);
     }
 }

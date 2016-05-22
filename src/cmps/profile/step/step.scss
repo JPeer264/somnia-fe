@@ -12,4 +12,15 @@
             transition: .5s background;
         }
     }
+
+    .editInput {
+        margin: $global-margin 0;
+    }
+}
+
+.remove-error {
+    .md-errors-spacer {
+        display: none;
+        position: none;
+    }
 }
