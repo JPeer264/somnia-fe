@@ -14,11 +14,11 @@ angular
  */
 HomeController.$inject = [
     '$scope',
-    'project',
+    'project', 'milestone',
     '_'
 ];
 
-function HomeController($scope, project, _) {
+function HomeController($scope, project, milestone, _) {
 
     /**
      * @ngdoc property
@@ -30,28 +30,82 @@ function HomeController($scope, project, _) {
      */
     $scope.getUser = 'users';
 
-    /**
-     * @ngdoc property
-     * @name $scope.steps
-     * @propertyOf pages.home:HomeCtrl
-     *
-     * @description
-     * All the steps of the current user
-     */
-    project.getAll().then(function(data) {
-        data = data.plain();
-        var milestones = data.user.project.milestones;
-        var steps = [];
+    _getMileStones();
+    
+    $scope.currentDone = function(){
 
-        for (var milestone of milestones) {
-            if (!milestone.done) {
-                steps.push(milestone.step);
-                break;
+        console.log($scope.current);
+        milestone.update($scope.current.id,{
+            finishedDate: new Date().getTime()
+        }).then(function(data){
+            data = data.plain();
+            console.log('update current success');
+            console.log(data);
+            if(data.last){
+                _finishProject();
+            }else{
+                _getMileStones();
             }
-        }
+        }, function(err){
+            console.log('update current error:');
+            console.log(err);
+            
+        });
+        
+    };
 
-        var flatten = _.flatten(steps);
+    function _finishProject(){
+        project.update($scope.project.id,{
+            finishedDate: new Date().getTime()
+        }).then(function(data){
+            data = data.plain();
+            console.log('response from finishProject:');
+            console.log(data);
 
-        $scope.steps = flatten.slice().reverse();
-    });
+        });
+    }
+
+    function _getMileStones(){
+        project.getAll().then(function(data) {
+            data = data.plain();
+            console.log(data);
+            $scope.project = data.user.project;
+            
+            var milestones = data.user.project.milestones;
+            var steps = [];
+
+            for (var milestone of milestones) {
+                if (!milestone.done) {
+                    steps.push(milestone.step);
+                    break;
+                }
+            }
+
+            var flatten = _.flatten(steps);
+
+            $scope.steps = flatten.slice().reverse();
+
+            $scope.milestones = data.user.project.milestones.sort(function(a,b){
+                return a.dueDate - b.dueDate;
+            });
+
+            $scope.current = $scope.milestones.filter(function(milestone){
+                return !milestone.done;
+            })[0];
+
+            if($scope.current){
+
+                var date1 = new Date();
+                var date2 = new Date($scope.current.dueDate);
+                var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+                var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+                $scope.current.dueIn = diffDays;
+            }
+
+        });
+
+    }
 }
+
+

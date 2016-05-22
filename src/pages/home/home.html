@@ -1,3 +1,17 @@
+<div layout="column" class=" ">
+
+    <md-content layout="column" class="md-padding" data-ng-if="current">
+        <h1>Next Milestone: {{current.title}}</h1>
+        <h3><span>due in {{current.dueIn}} days</span></h3>
+        <md-checkbox ng-model="current.done" aria-label="Finished?" ng-click="currentDone()">
+            Finished ?
+        </md-checkbox>
+    </md-content>
+    <md-content layout="column" class="md-padding" data-ng-if="!current">
+        <h1>{{project.title}}</h1>
+        <h3>Finished on: {{project.finishedDate}}</h3>
+    </md-content>
+</div>
 <div data-milestones></div>
 <div data-add-step></div>
 <div data-step data-ng-repeat="step in steps"></div>
