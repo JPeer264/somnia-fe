@@ -162,7 +162,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
             }
         })
-        .state('edit', {
+        .state('secure.edit', {
             url: '/edit',
             views: {
                 header: {
