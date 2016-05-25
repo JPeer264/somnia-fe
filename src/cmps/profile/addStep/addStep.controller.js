@@ -18,10 +18,20 @@ AddStepController.$inject = [
 ];
 
 function AddStepController($scope, step) {
+    var vm = this;
 
-    $scope.addStep = function () {
-        var stepObj = $scope.step;
-        var user =$scope.currentUser;
+    /**
+     * @ngdoc method
+     * @name vm.addStep
+     * @methodOf cmps.profile:AddStepCtrl
+     *
+     * @description
+     * add a step to the step scope
+     */
+    vm.addStep = function () {
+        var stepObj = vm.stepInfo;
+        var steps = $scope.home.steps;
+        var user = $scope.currentUser;
         var milestones = user.project.milestones;
         var milestoneId;
 
@@ -36,7 +46,7 @@ function AddStepController($scope, step) {
         step.create(milestoneId, stepObj).then(function(data) {
             var data = data.plain();
 
-            $scope.steps.unshift(data.step);
+            steps.unshift(data.step);
         });
     }
 }

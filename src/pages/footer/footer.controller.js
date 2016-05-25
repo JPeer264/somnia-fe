@@ -16,5 +16,6 @@ FooterController.$inject = [
 ];
 
 function FooterController($scope) {
+    var vm = this;
 
 }

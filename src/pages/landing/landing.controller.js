@@ -16,4 +16,6 @@ LandingController.$inject = [
 ];
 
 function LandingController($scope) {
+    var vm = this;
+
 }

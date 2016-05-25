@@ -1,9 +1,9 @@
 <h1>
-    <span ng-if="!vm.editMode">{{vm.project.title}}</span>
-    <input type="text" ng-model="vm.project.title" ng-if="vm.editMode"/>
-    <i class="fa fa-pencil button" ng-click="vm.toggleEditMode()" ng-if="!vm.editMode"></i>
-    <i class="fa fa-floppy-o button" ng-click="vm.saveProjectTitle()" ng-if="vm.editMode"></i>
-    <i class="fa fa-times button" ng-click="vm.toggleEditMode()" ng-if="vm.editMode"></i>
+    <span ng-if="!edit.editMode">{{edit.project.title}}</span>
+    <input type="text" ng-model="edit.project.title" ng-if="edit.editMode"/>
+    <i class="fa fa-pencil button" ng-click="edit.toggleEditMode()" ng-if="!edit.editMode"></i>
+    <i class="fa fa-floppy-o button" ng-click="edit.saveProjectTitle()" ng-if="edit.editMode"></i>
+    <i class="fa fa-times button" ng-click="edit.toggleEditMode()" ng-if="vm.editMode"></i>
 </h1>
 
 
@@ -16,12 +16,12 @@
                 <div class="column small-10">
                     <md-input-container class="remove-error">
                         <label>Add Milestone</label>
-                        <input type="text" data-ng-model="vm.newMilestone.title" required />
+                        <input type="text" data-ng-model="edit.newMilestone.title" required />
                     </md-input-container>
-                    <input type="date" data-ng-model="vm.newMilestone.dueDate" required/>
+                    <input type="date" data-ng-model="edit.newMilestone.dueDate" required/>
                 </div>
                 <div class="column small-2">
-                    <button data-ng-click="vm.addMilestone()" ><i class="fa fa-floppy-o button" ></i></button>
+                    <button data-ng-click="edit.addMilestone()" ><i class="fa fa-floppy-o button" ></i></button>
                 </div>
                 </form>
 
@@ -31,5 +31,5 @@
 </form>
 
 <ul>
-    <div data-ms-item data-ng-repeat="milestone in vm.milestones | orderBy: 'dueDate' "></div>
+    <div data-ms-item data-ng-repeat="milestone in edit.milestones | orderBy: 'dueDate' "></div>
 </ul>

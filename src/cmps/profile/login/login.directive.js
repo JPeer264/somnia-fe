@@ -17,6 +17,7 @@ function loginDirective() {
             // terminal: true,
             scope: {}, // {} = isolate, true = child, false/undefined = no change
             controller: 'LoginCtrl',
+            controllerAs: 'login',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
@@ -25,10 +26,11 @@ function loginDirective() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
+                var vm = controller;
                 var elem = new Foundation.Reveal($('#login'));
 
                 $(document).on('click', '.submit-login', function() {
-                    scope.login();
+                    vm.login();
                 });
             }
         };

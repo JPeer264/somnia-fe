@@ -26,16 +26,17 @@ UserbarController.$inject = [
 ];
 
 function UserbarController($scope, auth, $window, $cookies, COOKIE, $location) {
+    var vm = this;
 
     /**
-     * @ngdoc property
-     * @name $scope.logout
-     * @propertyOf cmps.profile:UserbarCtrl
+     * @ngdoc method
+     * @name vm.logout
+     * @methodOf cmps.profile:UserbarCtrl
      *
      * @description
      * call the auth.logout() service
      */
-    $scope.logout = function() {
+    vm.logout = function() {
         auth.logout();
     }
 }

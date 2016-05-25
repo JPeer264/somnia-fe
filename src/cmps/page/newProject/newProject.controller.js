@@ -28,11 +28,12 @@ NewProjectController.$inject = [
 ];
 
 function NewProjectController($scope, $state, $cookies, $window, user, auth, COOKIE) {
+    var vm = this;
 
     /**
-     * @ngdoc property
-     * @name $scope.register
-     * @propertyOf cmps.page:NewProjectCtrl
+     * @ngdoc method
+     * @name vm.register
+     * @methodOf cmps.page:NewProjectCtrl
      *
      * @description
      * create an user via user.create() and
@@ -40,7 +41,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
      *
      * @param {Object} formData the userdata
      */
-    $scope.register = function(formData) {
+    vm.register = function(formData) {
         user.create(formData).then(function (data) {
             var data = data.plain();
 
@@ -61,7 +62,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
 
     /**
      * @ngdoc property
-     * @name $scope.isFirstForm
+     * @name vm.isFirstForm
      * @propertyOf cmps.page:NewProjectCtrl
      *
      * @description
@@ -70,5 +71,5 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
      * @param   {Boolean} boo   the new boolesn * not required
      * @return  {Boolean}       isFirstForm
      */
-    $scope.isFirstForm = true;
+    vm.isFirstForm = true;
 }

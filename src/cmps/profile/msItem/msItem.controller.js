@@ -18,22 +18,41 @@ msItemCtrl.$inject = [
 ];
 
 function msItemCtrl($scope, milestone) {
-    
     //vars
-    var ctrl = this;
-    
-    ctrl.editMode = false;
+    var vm = this;
+
+    /**
+     * @ngdoc property
+     * @name vm.isEditMode
+     * @propertyOf cmps.profile:UserbarCtrl
+     *
+     * @description
+     * check if the edit mode is activated
+     */
+    vm.isEditMode = false;
 
     //function
-    ctrl.edit = edit;
-    
+    /**
+     * @ngdoc method
+     * @name vm.edit
+     * @methodOf cmps.profile:UserbarCtrl
+     *
+     * @description
+     * update the milestone
+     *
+     * @param {Integer} mdId        the id of the to edit milestone
+     * @param {String}  msTitle     the new title
+     * @param {Integer} msDueDate   the new date
+     */
+    vm.edit = edit;
+
     ///////////////////////
     function edit(msId, msTitle, msDueDate) {
 
         msDueDate = msDueDate.getTime();
         console.log(msDueDate);
 
-        if(ctrl.editMode){
+        if(vm.isEditMode){
             milestone.update(msId, {
                 title: msTitle,
                 dueDate: msDueDate
@@ -43,7 +62,7 @@ function msItemCtrl($scope, milestone) {
                 console.log(data);
             });
         }
-        ctrl.editMode = !ctrl.editMode;
-        
+        vm.isEditMode = !vm.isEditMode;
+
     }
 }

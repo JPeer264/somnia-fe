@@ -16,5 +16,6 @@ ProfileController.$inject = [
 ];
 
 function ProfileController($scope) {
+    var vm = this;
 
 }

@@ -1,22 +1,22 @@
 <div>
-    <div class="milestone-next" data-ng-if="current">
+    <div class="milestone-next" data-ng-if="updateMilestones.current">
         <div class="success progress">
-            <div class="progress-meter" style="width: {{ 100 / current.dueIn  }}%">
-                <p class="progress-meter-text">{{ current.dueIn }} days left</p>
+            <div class="progress-meter" style="width: {{ 100 / updateMilestones.current.dueIn  }}%">
+                <p class="progress-meter-text">{{ updateMilestones.current.dueIn }} days left</p>
             </div>
         </div>
         <div class="milestone-next-inner reset-column-padding">
             <div class="row row-border">
                 <div class="column medium-5 small-12">
                     <p>This milestone:</p>
-                    <h1>{{current.title}}</h1>
+                    <h1>{{ updateMilestones.current.title }}</h1>
                 </div>
                 <div class="column medium-5 small-12">
                     <p>Next milestone:</p>
-                    <h1>{{next.title}}</h1>
-                    <h1 data-ng-if="!next.title">-</h1>
+                    <h1>{{ updateMilestones.next.title }}</h1>
+                    <h1 data-ng-if="!updateMilestones.next.title">-</h1>
                 </div>
-                <div class="column medium-1 small-8 next-btn flex flex-center flex-horizontal-center" data-ng-click="currentDone()">
+                <div class="column medium-1 small-8 next-btn flex flex-center flex-horizontal-center" data-ng-click="updateMilestones.currentDone()">
                     <i class="fa fa-check"></i>
                 </div>
                 <a class="column medium-1 small-4 edit-btn flex flex-center flex-horizontal-center" href="#/edit">
@@ -26,17 +26,17 @@
         </div>
     </div>
 
-    <div class="milestone-next" data-ng-if="!current">
+    <div class="milestone-next" data-ng-if="!updateMilestones.current">
         <div class="success progress">
             <div class="progress-meter" style="width: 100%">
-                <p class="progress-meter-text">Finished on {{ moment(project.milestones[0].finishedDate).format('MM/DD/YYYY') }}</p>
+                <p class="progress-meter-text">Finished on {{ moment(updateMilestones.project.milestones[0].finishedDate).format('MM/DD/YYYY') }}</p>
             </div>
         </div>
         <div class="milestone-next-inner reset-column-padding">
             <div class="row row-border">
                 <div class="column small-10">
                     <p>Projecttitle:</p>
-                    <h1>{{project.title}}</h1>
+                    <h1>{{ updateMilestones.project.title }}</h1>
                 </div>
                 <div class="column small-2 thumbs flex flex-center flex-horizontal-center">
                     <i class="fa fa-thumbs-up"></i>

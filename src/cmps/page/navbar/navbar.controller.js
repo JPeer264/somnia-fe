@@ -16,5 +16,6 @@ NavbarController.$inject = [
 ];
 
 function NavbarController($scope) {
+    var vm = this;
 
 }

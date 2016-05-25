@@ -6,6 +6,8 @@ angular
  * @ngdoc directive
  * @name cmps.profile:milestones
  *
+ * @requires pages.home:HomeCtrl#project
+ *
  * @description
  * Generates a single userbar component for
  * the header to log out or manage the useraccout
@@ -18,6 +20,7 @@ function milestonesDirective() {
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
             controller: 'MilestonesCtrl',
+            controllerAs: 'milestones',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',

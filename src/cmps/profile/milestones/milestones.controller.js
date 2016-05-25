@@ -18,16 +18,6 @@ MilestonesController.$inject = [
 ];
 
 function MilestonesController($scope, project) {
+    var vm = this;
 
-    /**
-     * @ngdoc property
-     * @name $scope.project
-     * @propertyOf cmps.profile:MilestonesCtrl
-     *
-     * @description
-     * The data of the projects of the currentuser
-     */
-    project.getAll().then(function (data) {
-        $scope.project = data.plain().user.project;
-    });
 }

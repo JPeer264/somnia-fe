@@ -1,7 +1,7 @@
 <div class="milestone">
     <div data-update-milestones></div>
-    <ul class="progressbar clearfix" data-progtrckr-steps="{{ project.milestones.length }}">
-        <li data-ng-class="{'active': milestone.done}" data-ng-repeat="milestone in project.milestones">
+    <ul class="progressbar clearfix" data-progtrckr-steps="{{ home.project.milestones.length }}">
+        <li data-ng-class="{'active': milestone.done}" data-ng-repeat="milestone in home.project.milestones">
             <span>{{ milestone.title }}</span>
         </li>
     </ul>

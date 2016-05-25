@@ -7,7 +7,7 @@ angular
  * @name pages.home:HomeCtrl
  *
  * @requires $scope
- * @requires project
+ * @requires service.project
  *
  * @description
  * HomeCtrl for the home page
@@ -19,26 +19,45 @@ HomeController.$inject = [
 ];
 
 function HomeController($scope, project, milestone, _) {
+    var vm = this;
 
     /**
      * @ngdoc property
-     * @name $scope.getUser
+     * @name vm.project
      * @propertyOf pages.home:HomeCtrl
      *
      * @description
-     * example of a property
+     * get all projects
      */
-    $scope.getUser = 'users';
-
+    /**
+     * @ngdoc property
+     * @name vm.steps
+     * @propertyOf pages.home:HomeCtrl
+     *
+     * @description
+     * get all steps from the current active milestone
+     * the milestones are sorted upsidedown
+     */
+    /**
+     * @ngdoc property
+     * @name vm.milestones
+     * @propertyOf pages.home:HomeCtrl
+     *
+     * @description
+     * milestones sorted by duedate
+     */
     project.getAll().then(function(data) {
         data = data.plain();
 
-        $scope.project = data.user.project;
+        vm.project = data.user.project;
 
         var milestones = data.user.project.milestones;
         var steps = [];
         var cachedMilestone;
+        var flatten;
 
+        // get the first milestone which is not done
+        // and save those steps into `steps`
         for (var milestone of milestones) {
             if (!milestone.done) {
                 steps.push(milestone.step);
@@ -46,12 +65,11 @@ function HomeController($scope, project, milestone, _) {
             }
         }
 
-        var flatten = _.flatten(steps);
-
-        $scope.steps = flatten.slice().reverse();
+        flatten = _.flatten(steps);
+        vm.steps = flatten.slice().reverse();
 
         // update milestones
-        $scope.milestones = data.user.project.milestones.sort(function(a,b){
+        vm.milestones = data.user.project.milestones.sort(function(a,b){
             return a.dueDate - b.dueDate;
         });
     });

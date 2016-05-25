@@ -8,7 +8,7 @@ angular
  *
  * @restrict AE
  *
- * @description 
+ * @description
  * Generates a single tooltip component
  */
 function screenTipDirective() {
@@ -19,7 +19,7 @@ function screenTipDirective() {
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
             controller: 'TooltipCtrl',
-            controllerAs: 'tool',
+            controllerAs: 'tooltip',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             restrict: 'AE', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',

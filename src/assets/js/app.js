@@ -103,7 +103,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
                 main: {
                     templateUrl: 'pages/home/home.html',
-                    controller: 'HomeCtrl'
+                    controller: 'HomeCtrl as home'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -120,7 +120,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
                 main: {
                     templateUrl: 'pages/profile/profile.html',
-                    controller: 'ProfileCtrl'
+                    controller: 'ProfileCtrl as profile'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -137,7 +137,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
                 main: {
                     templateUrl: 'pages/landing/landing.html',
-                    controller: 'ProfileCtrl'
+                    controller: 'LandingCtrl as landing'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -154,7 +154,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
                 main: {
                     templateUrl: 'pages/error/error.html',
-                    controller: 'ErrorCtrl'
+                    controller: 'ErrorCtrl as error'
                 },
                 footer: {
                     templateUrl: templates.footer.template,
@@ -171,7 +171,7 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
                 },
                 main: {
                     templateUrl: 'pages/edit/edit.html',
-                    controller: 'EditCtrl as vm'
+                    controller: 'EditCtrl as edit'
                 },
                 footer: {
                     templateUrl: templates.footer.template,

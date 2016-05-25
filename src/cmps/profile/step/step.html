@@ -3,14 +3,14 @@
         <div class="column small-10 medium-11">
             <div class="row padding">
                 <div class="column medium-8 small-12">
-                    #{{ steps.length - $index }} <span data-edit="{{ step.id }}">{{ step.title }}</span>
-                    <div data-ng-if="changeId() === step.id">
+                    #{{ home.steps.length - $index }} <span data-edit="{{ step.id }}">{{ step.title }}</span>
+                    <div data-ng-if="stepvm.changeId() === step.id">
                         <md-input-container class="remove-error">
                             <label>Change title</label>
-                            <input type="text" data-ng-model="step.edit" required />
+                            <input type="text" data-ng-model="stepvm.stepInfo.edit" required />
                         </md-input-container>
                         <button>
-                            <i class="fa fa-times" data-ng-click="changeId(0)"></i>
+                            <i class="fa fa-times" data-ng-click="stepvm.changeId(0)"></i>
                         </button>
                     </div>
                 </div>
@@ -19,10 +19,10 @@
                 </div>
             </div>
         </div>
-        <div class="column small-2 medium-1 flex flex-center edit"  data-ng-click="changeId() !== step.id ? openEdit(step.id) : edit(step.id)">
+        <div class="column small-2 medium-1 flex flex-center edit" data-ng-click="stepvm.changeId() !== step.id ? stepvm.openEdit(step.id) : stepvm.edit(step.id)">
             <div class="flex flex-center flex-horizontal-center">
-                <i class="fa fa-pencil" aria-hidden="true" data-ng-if="changeId() !== step.id"></i>
-                <i class="fa fa-floppy-o" aria-hidden="true" data-ng-if="changeId() === step.id"></i>
+                <i class="fa fa-pencil" aria-hidden="true" data-ng-if="stepvm.changeId() !== step.id"></i>
+                <i class="fa fa-floppy-o" aria-hidden="true" data-ng-if="stepvm.changeId() === step.id"></i>
             </div>
         </div>
     </div>

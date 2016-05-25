@@ -20,14 +20,6 @@ HeaderController.$inject = [
 ];
 
 function HeaderController($scope,user,auth) {
-
     var vm = this;
-    vm.user = "";
 
-    if(auth.isAuthorized()){
-        user.get().then(function(data){
-            data = data.plain();
-            vm.user = data.user.email;
-        });
-    }
 }

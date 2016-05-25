@@ -16,5 +16,6 @@ ErrorController.$inject = [
 ];
 
 function ErrorController($scope) {
+    var vm = this;
 
 }

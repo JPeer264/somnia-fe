@@ -17,6 +17,7 @@ function newProject() {
             // terminal: true,
             // scope: {}, // {} = isolate, true = child, false/undefined = no change
             controller: 'NewProjectCtrl',
+            controllerAs: 'newProject',
             // require: 'ngModel', // Array = multiple requires, ? = optional, ^ = check parent elements
             // restrict: 'A', // E = Element, A = Attribute, C = Class, M = Comment
             // template: '',
@@ -25,6 +26,7 @@ function newProject() {
             // transclude: true,
             // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
             link: function(scope, iElm, iAttrs, controller) {
+                var vm = controller;
                 var $self = $(this);
                 var $formElem = $('#newProject .transform');
                 var $forms = $formElem.find('form');
@@ -48,7 +50,7 @@ function newProject() {
                 $(document).on('click', 'button[data-back]', function (data) {
 
                     if (index === 1) {
-                        scope.isFirstForm = true;
+                        vm.isFirstForm = true;
                     }
 
                     index--;
@@ -58,7 +60,7 @@ function newProject() {
                         'transform': 'translate3d(-' + newWidth + 'px, 0px, 0px)'
                     });
 
-                    scope.$apply();
+                    vm.$apply();
                 });
 
                 // todo delete
@@ -74,7 +76,7 @@ function newProject() {
                 // transform logic
                 $forms.each(function (key, value) {
                     $(this).submit(function (e) {
-                        scope.isFirstForm = false;
+                        vm.isFirstForm = false;
                         index = (key + 1);
                         newWidth = formElemWidth * index;
 
@@ -89,32 +91,32 @@ function newProject() {
                             // transform milestones to array
 
                             //only do this for first try - in case sb has to submit more than once (e.g. email already taken)
-                            if(!scope.user.project.milestones){
+                            if(!vm.user.project.milestones){
                                 var temp = [
                                     {
-                                        "title": scope.user.project.milestone[0].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[0].date)).getTime()
+                                        "title": vm.user.project.milestone[0].title,
+                                        "dueDate": (new Date(vm.user.project.milestone[0].date)).getTime()
                                     },
                                     {
-                                        "title": scope.user.project.milestone[1].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[1].date)).getTime()
+                                        "title": vm.user.project.milestone[1].title,
+                                        "dueDate": (new Date(vm.user.project.milestone[1].date)).getTime()
                                     },
                                     {
-                                        "title": scope.user.project.milestone[2].title,
-                                        "dueDate": (new Date(scope.user.project.milestone[2].date)).getTime()
+                                        "title": vm.user.project.milestone[2].title,
+                                        "dueDate": (new Date(vm.user.project.milestone[2].date)).getTime()
                                     }
                                 ];
 
-                                scope.user.project.milestone = null;
-                                delete scope.user.project.milestone;
-                                scope.user.project.milestones = temp;
+                                vm.user.project.milestone = null;
+                                delete vm.user.project.milestone;
+                                vm.user.project.milestones = temp;
 
                                 //todo: get real date
-                                scope.user.project.dueDate = (new Date(scope.user.project.dueDate)).getTime();
+                                vm.user.project.dueDate = (new Date(vm.user.project.dueDate)).getTime();
                             }
-                            scope.register(scope.user);
+                            vm.register(vm.user);
                         }
-                        scope.$apply();
+                        vm.$apply();
                     });
                 });
             }

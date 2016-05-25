@@ -26,16 +26,17 @@ LoginController.$inject = [
 ];
 
 function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
+    var vm = this;
 
     /**
-     * @ngdoc property
-     * @name $scopelogin
-     * @propertyOf cmps.profile:LoginCtrl
+     * @ngdoc method
+     * @name vm.login
+     * @methodOf cmps.profile:LoginCtrl
      *
      * @description
      * call the auth.login() service and set token if it not fail
      */
-    $scope.login = function() {
+    vm.login = function() {
         auth.login($scope.userdata).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
@@ -44,14 +45,14 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
     }
 
     /**
-     * @ngdoc property
-     * @name $scope.signup
-     * @propertyOf cmps.profile:LoginCtrl
+     * @ngdoc method
+     * @name vm.signup
+     * @methodOf cmps.profile:LoginCtrl
      *
      * @description
      * go to signup page
      */
-    $scope.signup=function(){
+    vm.signup=function(){
         $location.path( '/signup' );
     }
 

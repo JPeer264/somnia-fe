@@ -16,5 +16,6 @@ SliderController.$inject = [
 ];
 
 function SliderController($scope) {
+    var vm = this;
 
 }
