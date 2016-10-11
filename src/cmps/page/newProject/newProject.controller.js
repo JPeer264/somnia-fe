@@ -47,7 +47,7 @@ function NewProjectController($scope, $state, $cookies, $window, user, auth, COO
 
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
-            $window.location.assign('/');
+            $window.location.assign('.');
         }, function(err){
             // todo if fails show error
             console.info("Error from registerall");

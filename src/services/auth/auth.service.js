@@ -43,11 +43,11 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
             $rootScope.returnToState = $rootScope.toState;
             $rootScope.returnToStateParams = $rootScope.toStateParams;
 
-            $location.path('/landing');
+            $location.path('landing');
             return;
         } else {
             if ($rootScope.toState.name === 'landing') {
-                $location.path('/');
+                $location.path('.');
                 return;
             }
         }
@@ -133,7 +133,7 @@ function auth($rootScope, Restangular, $state, $window, $cookies, COOKIE, $httpP
     self.logout = function() {
         $cookies.remove(COOKIE.TOKEN);
         $cookies.remove(COOKIE.USER_ID);
-        $window.location.assign('/');
+        $window.location.assign('.');
     }
 
     /**

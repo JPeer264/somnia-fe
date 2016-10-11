@@ -67,8 +67,8 @@ function config ($stateProvider, $urlRouterProvider, localStorageServiceProvider
       $mdThemingProvider.theme('default')
         .primaryPalette('superpowerteam')
 
-    $urlRouterProvider.when('', '/');
-    $urlRouterProvider.otherwise('/error');
+    $urlRouterProvider.when('', '.');
+    $urlRouterProvider.otherwise('error');
 
     // setup header and footer templates
     var templates = {

@@ -40,7 +40,7 @@ function LoginController($scope, auth, $window, $cookies, COOKIE, $location) {
         auth.login($scope.userdata).then(function (data) {
             $cookies.put(COOKIE.TOKEN, data.token);
             $cookies.put(COOKIE.USER_ID, data.user.id);
-            $window.location.assign('/');
+            $window.location.assign('.');
         });
     }
 

@@ -43,7 +43,7 @@ function UpdateMilestonesController($scope, project, milestone, $window) {
                 _getMileStones();
             }
 
-            $window.location.assign('/');
+            $window.location.assign('.');
         }, function(err){
             console.log('update current error:');
             console.log(err);
